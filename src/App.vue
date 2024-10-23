@@ -1,14 +1,29 @@
 <template>
-  <div></div>
+  <div>
+      <BaseCard></BaseCard> <br><br>
+     
+
+
+      <BaseAlert
+          variant="success">
+      </BaseAlert>
+  </div>
+
 </template>
 
 <script>
-
+import BaseCard from '@/components/BaseCard.vue';
+import BaseAlert from '@/components/BaseAlert.vue';
 export default {
   name: 'App',
+  components: {
+    BaseCard, 
+    BaseAlert,
+
+  },
   data() {
     return{
-      name:'seu nome'
+      
     
   }
 },
@@ -20,7 +35,9 @@ export default {
   },
 
   methods: {
+    enviar(){
 
+    }
   }
 
 };
