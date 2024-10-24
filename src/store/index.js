@@ -16,7 +16,7 @@ export default createStore({
       {
         id: 2,
         name: 'Chuteira',
-        price: 100
+        price: 200
       }, 
       {
         id: 3,
@@ -47,13 +47,18 @@ export default createStore({
   },
 
   getters: {
+    total(state) {
+        return state.cart.reduce((total, item) => total += item.price, 0)
+    },
   },
   
   actions: {
+    storeUser({commit}, data){
+
+      commit('storeUser', data);
+    }
   },
 
-  getters: {
-  },
- 
+  
  
 })

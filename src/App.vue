@@ -5,7 +5,10 @@
     
     <pre>Quantidade de produtos adicionados no carrinho : {{ $store.state.cart }} </pre>
     
+      <pre>Valor Total : {{ $store.getters.total }} R$</pre>
      <br>
+
+     {{ $store.state.user.first_name }} {{ $store.state.user.last_name }} <br>
     
     
     <button @click="updateUser()">
@@ -35,7 +38,8 @@ export default {
       last_name: 'cardoso',
       email: 'fern@gmail.com'
           }
-          this.$store.commit('storeUser', newUser)
+          //this.$store.commit('storeUser', newUser)
+          this.$store.dispatch('storeUser', newUser)
         }
     },
 }
