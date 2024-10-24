@@ -1,17 +1,49 @@
 <template>
+    <h5>User</h5>
+    {{ user.first_name }}
+    <br>
+    <br>
 
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h6>Full name</h6>
+    {{ fullName}}
+ 
+    <button @click="user.first_name = 'Sansa'"> Atualizar</button>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, computed, watch } from 'vue';
+
+
 
 
 export default {
   name: 'App',
-  components: {
-      HelloWorld
-  },
+    setup() {
+    const user = ref({
+        first_name: 'Jon',
+        last_name: 'Snow'
+    })
+        const fullName = computed(() => {
+            return `${user.value.first_name} ${user.value.last_name}`
+        },
+
+        watch(user, () =>{
+            console.log('Lógica Cabulosa');
+        }, { deep: true 
+        })
+    
+    )
+
+
+
+
+        return{
+            user,
+            fullName
+        }
+  }
+    
   
 }
 </script>
