@@ -7,7 +7,24 @@ export default createStore({
       last_name: 'martins',
       email: 'fef@gmail.com'
     }, 
-    products: [],
+    products: [
+      {
+        id: 1,
+        name: 'Bola',
+        price: 100
+      },
+      {
+        id: 2,
+        name: 'Chuteira',
+        price: 100
+      }, 
+      {
+        id: 3,
+        name: 'Meião',
+        price: 50
+      }
+
+    ],
     cart: []
 
   },
@@ -17,7 +34,19 @@ export default createStore({
       state.user = data
       
       console.log('storeuser', data);
-    }
+    },
+
+    addProduct(state, data){
+      state.cart.push(data)
+    }, 
+    removeProduct(state, id) {
+      const idx = state.cart.findIndex(o => o.id === id)
+      state.cart.splice(idx, 1);
+    },
+  
+  },
+
+  getters: {
   },
   
   actions: {
